@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addGame } from "../redux/actions";
 
 class AddGame extends React.Component {
   constructor(props) {
@@ -18,6 +20,18 @@ class AddGame extends React.Component {
       [evt.target.name]: value
     });
   }
+
+  handleAddGame = () => {
+    // dispatches actions to add todo
+    this.props.addGame(this.state);
+    // sets state back to empty string
+    this.setState({ 
+      firstPlayer: "nico", 
+      secondPlayer: "caty",
+      firstPlayerScore: 0,
+      secondPlayerScore: 0
+     });
+  };
 
   render() {
     return (
@@ -65,4 +79,7 @@ class AddGame extends React.Component {
   }
 }
 
-export default AddGame;
+export default connect(
+  null,
+  { addGame }
+)(AddGame);

@@ -1,7 +1,14 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER, ADD_GAME } from "./actionTypes";
 
 let nextTodoId = 0;
+// dispatchers
 
+export const addGame = content => ({
+  type: ADD_GAME,
+  payload: {
+    content
+  }
+});
 export const addTodo = content => ({
   type: ADD_TODO,
   payload: {
