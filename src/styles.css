@@ -2,13 +2,29 @@
   font-family: sans-serif;
 }
 
+.pong-app {
+  font-family: sans-serif;
+}
+
 /** add todo **/
 .add-todo {
   margin-left: 0.5rem;
 }
 
+/** add todo **/
+.add-game {
+  margin-left: 0.5rem;
+}
+
 /** todo list **/
 .todo-list {
+  margin-top: 1rem;
+  text-align: left;
+  list-style: none;
+}
+
+/** game list **/
+.game-list {
   margin-top: 1rem;
   text-align: left;
   list-style: none;
