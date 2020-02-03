@@ -1,18 +1,9 @@
 import React from "react";
-/*
-ranks = [{
-    playerId: 2,
-    playerName: 'Andrew',
-    win: 2,
-    loss: 0,
-    tie: 1,
-    points: 7
-    }] 
-    */
+
 const Rank = ({ rank }) => (
   <li>
     <span>
-    {rank.playerName}: Wins {rank.win}, Losses {rank.loss}, Ties {rank.tie}, Total of Point: {rank.points}</span>
+    {rank.name}: Wins {rank.won}, Losses {rank.lost}, Ties {rank.tied}, Total of Point: {rank.points}</span>
   </li>
 );
 

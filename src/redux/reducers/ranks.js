@@ -1,15 +1,15 @@
-import {ADD_GAME } from "../actionTypes";
+import {FETCH_RANKS } from "../actionTypes";
 
 const initialState = {
-  games: []
+  ranks: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case ADD_GAME: {
+    case FETCH_RANKS: {
       return {
         ...state,
-        games: [...state.games, action.payload[0]]
+        ranks: [...state.ranks, action.payload]
       };
     }
     default:
