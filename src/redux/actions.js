@@ -1,7 +1,20 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER, ADD_GAME, FETCH_RANKS } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER, ADD_GAME, FETCH_RANKS, FETCH_GAMES } from "./actionTypes";
 
 let nextTodoId = 0;
 // dispatchers
+
+export const fetchGames = () => {
+  return dispatch => {
+    fetch('http://localhost:7000/api/v1/games')
+      .then(res => res.json())
+      .then(games => {
+        dispatch({
+          type: FETCH_GAMES,
+          payload: games,
+        })
+      });
+  };
+};
 
 export const fetchRanks = () => {
   return dispatch => {
@@ -26,23 +39,21 @@ export const addGame = game => {
       body: JSON.stringify(game),
     })
       .then(res => res.json())
-      .then(data =>
+      .then(data => {
         dispatch({
           type: ADD_GAME,
           payload: data,
         })
-      );
+      })
+      .then(() => {
+        // console.log('holaa11111')
+        // console.log(dispatch(fetchRanks()))
+        // console.log('holaa12222')
+        dispatch(fetchRanks())
+      });
   };
 };
 
-/*
-export const addGame = game => ({
-  type: ADD_GAME,
-  payload: {
-    game
-  }
-});
-*/
 export const addTodo = content => ({
   type: ADD_TODO,
   payload: {

@@ -11,7 +11,6 @@ class RankList extends React.Component {
   }
   render() {
     const { ranks } = this.props;
-    console.log(ranks)
     return (
       <div>
         <h1>Leading Board</h1>
@@ -24,13 +23,16 @@ class RankList extends React.Component {
             : "No players, yay!"
           }
         </ul>
+        <span>
+          Point System: win=3,loss=0,tie=1
+        </span>
       </div>
     );
   }
 };
 
 const mapStateToProps = state => {
-  return { ranks:state.ranks.ranks[0] };
+  return { ranks:state.ranks.ranks };
 };
 
 const mapDispatchToProps = { fetchRanks };

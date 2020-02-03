@@ -14,10 +14,9 @@ class AddGame extends React.Component {
   }
 
   handleChange = (evt) => {
-    const value = evt.target.value;
     this.setState({
       ...this.state,
-      [evt.target.name]: value
+      [evt.target.name]: evt.target.type === 'number' ? parseInt(evt.target.value) : evt.target.value
     });
   }
 
@@ -48,6 +47,9 @@ class AddGame extends React.Component {
           />
           <span>Score: </span>
           <input
+            type="number"
+            pattern="[0-9]*"
+            min="0"
             name="firstPlayerScore"
             onChange={this.handleChange}
             value={this.state.firstPlayerScore}
@@ -66,6 +68,10 @@ class AddGame extends React.Component {
           />
           <span>Score: </span>
           <input
+          type="number"
+            pattern="[0-9]*"
+            min="0"
+            pattern="[0-9]*"
             name="secondPlayerScore"
             onChange={this.handleChange}
             value={this.state.secondPlayerScore}

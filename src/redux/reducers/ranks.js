@@ -7,9 +7,10 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_RANKS: {
+      console.log(action.payload)
       return {
         ...state,
-        ranks: [...state.ranks, action.payload]
+        ranks: [...action.payload]
       };
     }
     default:
